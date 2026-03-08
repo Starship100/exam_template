@@ -6,7 +6,6 @@ from . import pickups
 
 player = Player(18, 5)
 score = 0
-inventory = []
 
 g = Grid()
 g.set_player(player)
@@ -35,6 +34,7 @@ while not command.casefold() in ["q", "x"]:
         print(player.inventory)
 
     if command == "w" and player.can_move(0, -1, g):  # move right
+        score -= 1
         maybe_item = g.get(player.pos_x, player.pos_y - 1)
         player.move(0, -1, g)
         if isinstance(maybe_item, pickups.Item):
@@ -45,6 +45,7 @@ while not command.casefold() in ["q", "x"]:
             g.clear(player.pos_x, player.pos_y)
 
     if command == "a" and player.can_move(-1, 0, g):  # move right
+        score -= 1
         maybe_item = g.get(player.pos_x - 1, player.pos_y)
         player.move(-1, 0, g)
         if isinstance(maybe_item, pickups.Item):
@@ -55,6 +56,7 @@ while not command.casefold() in ["q", "x"]:
             g.clear(player.pos_x, player.pos_y)
 
     if command == "s" and player.can_move(0, 1, g):  # move right
+        score -= 1
         maybe_item = g.get(player.pos_x, player.pos_y + 1)
         player.move(0, 1, g)
         if isinstance(maybe_item, pickups.Item):
@@ -65,6 +67,7 @@ while not command.casefold() in ["q", "x"]:
             g.clear(player.pos_x, player.pos_y)
 
     if command == "d" and player.can_move(1, 0, g):  # move right
+        score -= 1
         maybe_item = g.get(player.pos_x + 1, player.pos_y)
         player.move(1, 0, g)
         if isinstance(maybe_item, pickups.Item):

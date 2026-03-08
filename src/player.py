@@ -5,6 +5,7 @@ class Player:
         self.pos_x = x
         self.pos_y = y
         self.inventory = []
+        self.score = 0
 
     # Flyttar spelaren. "dx" och "dy" är skillnaden
     def move(self, dx, dy, grid):
@@ -16,6 +17,7 @@ class Player:
         if item != grid.empty and item != grid.wall:
             self.inventory.append(item.name)
             grid.clear(new_x, new_y)
+
         """dx = horisontell förflyttning, från vänster till höger\n
         dy = vertikal förflyttning, uppifrån och ned"""
         self.pos_x += dx
