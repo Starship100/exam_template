@@ -4,7 +4,7 @@ from . import pickups
 
 
 
-player = Player(2, 4)
+player = Player(18, 5)
 score = 0
 inventory = []
 
@@ -31,7 +31,7 @@ while not command.casefold() in ["q", "x"]:
     command = command.casefold()[:1]
 
     if command == "w" and player.can_move(0, -1, g):  # move right
-        maybe_item = g.get(player.pos_x - 1, player.pos_y)
+        maybe_item = g.get(player.pos_x, player.pos_y - 1)
         player.move(0, -1)
         if isinstance(maybe_item, pickups.Item):
             # we found something
@@ -51,7 +51,7 @@ while not command.casefold() in ["q", "x"]:
             g.clear(player.pos_x, player.pos_y)
 
     if command == "s" and player.can_move(0, 1, g):  # move right
-        maybe_item = g.get(player.pos_y - 1, player.pos_y)
+        maybe_item = g.get(player.pos_x, player.pos_y + 1)
         player.move(0, 1)
         if isinstance(maybe_item, pickups.Item):
             # we found something

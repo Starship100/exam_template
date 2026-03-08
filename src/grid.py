@@ -5,7 +5,7 @@ class Grid:
     width = 36
     height = 12
     empty = "."  # Tecken för en tom ruta
-    wall = "■"   # Tecken för en ogenomtränglig vägg
+    wall = "■"   # Tecken för hur gör man för att en ogenomtränglig vägg
 
     def __init__(self):
         """Skapa ett objekt av klassen Grid"""
