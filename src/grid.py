@@ -13,7 +13,7 @@ class Grid:
         self.data = [[self.empty for y in range(self.width)] for z in range(
             self.height)]
 
-    def make_random_walls(self):
+    def make_inside_walls(self):
         for x in range(5, 31):
             if x != 18:
                 self.set(x, 6, self.wall)

@@ -10,7 +10,7 @@ score = 0
 g = Grid()
 g.set_player(player)
 g.make_walls()
-g.make_random_walls()
+g.make_inside_walls()
 pickups.randomize(g)
 
 
