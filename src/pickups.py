@@ -1,3 +1,4 @@
+import random
 
 class Item:
     """Representerar saker man kan plocka upp."""
@@ -22,3 +23,13 @@ def randomize(grid):
             if grid.is_empty(x, y):
                 grid.set(x, y, item)
                 break  # avbryt while-loopen, fortsätt med nästa varv i for-loopen
+
+def spawn_one(grid):
+    """Slumpar en frukt ut på spelplanen"""
+    item = random.choice(pickups)
+    while True:
+        x = grid.get_random_x()
+        y = grid.get_random_y()
+        if grid.is_empty(x, y):
+            grid.set(x, y, item)
+            break
