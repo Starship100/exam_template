@@ -7,16 +7,19 @@ class Player:
         self.inventory = []
 
     # Flyttar spelaren. "dx" och "dy" är skillnaden
-    def move(self, dx, dy):
-        """Flyttar spelaren.\n
-        dx = horisontell förflyttning, från vänster till höger\n
+    def move(self, dx, dy, grid):
+        """Flyttar spelaren och kollar efter föremål"""
+        new_x = self.pos_x + dx
+        new_y = self.pos_y + dy
+        item = grid.get(new_x, new_y)
+
+        if item != grid.empty and item != grid.wall:
+            self.inventory.append(item.name)
+            grid.clear(new_x, new_y)
+        """dx = horisontell förflyttning, från vänster till höger\n
         dy = vertikal förflyttning, uppifrån och ned"""
         self.pos_x += dx
         self.pos_y += dy
-
-    def pick_up(self, item):
-        """Sparar frukterna i listan"""
-        self.inventory.append(item)
 
     def can_move(self, dx, dy, grid):
         #
