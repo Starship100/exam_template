@@ -1,10 +1,10 @@
 class Player:
-    marker = "@"
+    marker = "@"  # Symbolen för spelaren på kartan
 
     def __init__(self, x, y):
         self.pos_x = x
         self.pos_y = y
-        self.inventory = []
+        self.inventory = []  # Lista på upplockade frukter/föremål
 
     # Flyttar spelaren. "dx" och "dy" är skillnaden
     def move(self, dx, dy, grid):
@@ -13,12 +13,12 @@ class Player:
         new_y = self.pos_y + dy
         item = grid.get(new_x, new_y)
 
+        # Om rutan inte är tom eller en vägg är det ett föremål
         if item != grid.empty and item != grid.wall:
             self.inventory.append(item.name)
             grid.clear(new_x, new_y)
 
-        """dx = horisontell förflyttning, från vänster till höger\n
-        dy = vertikal förflyttning, uppifrån och ned"""
+        # Uppdatera spelarens position
         self.pos_x += dx
         self.pos_y += dy
 
@@ -28,6 +28,8 @@ class Player:
         move_to_y = self.pos_y + dy
         #
         tile = grid.get(move_to_x, move_to_y)
+
+        # Om rutan är en vägg stoppas spelaren
         if tile == grid.wall:
             return False
 

@@ -3,14 +3,14 @@ import random
 class Item:
     """Representerar saker man kan plocka upp."""
     def __init__(self, name, value=20, symbol="?"):
-        self.name = name
-        self.value = value
-        self.symbol = symbol
+        self.name = name    # Föremålens namn t.ex "apple"
+        self.value = value   # Hur många poäng det ger
+        self.symbol = symbol  # Tecknet för föremålen på spelplanen
 
     def __str__(self):
         return self.symbol
 
-
+# Listan med alla föremål i spelet
 pickups = [Item("carrot"), Item("apple"), Item("strawberry"), Item("cherry"), Item("watermelon"), Item("radish"), Item("cucumber"), Item("meatball")]
 
 
@@ -32,4 +32,4 @@ def spawn_one(grid):
         y = grid.get_random_y()
         if grid.is_empty(x, y):
             grid.set(x, y, item)
-            break
+            break # Avsluta när föremålet har placerats
