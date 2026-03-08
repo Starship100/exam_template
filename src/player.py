@@ -5,7 +5,6 @@ class Player:
         self.pos_x = x
         self.pos_y = y
         self.inventory = []
-        self.score = 0
 
     # Flyttar spelaren. "dx" och "dy" är skillnaden
     def move(self, dx, dy, grid):
