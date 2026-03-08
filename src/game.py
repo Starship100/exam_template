@@ -27,7 +27,7 @@ command = "a"
 while not command.casefold() in ["q", "x"]:
     print_status(g)
 
-    command = input("Use WASD to move, i för Inventory eller Q/X to quit. ")
+    command = input("Use WASD to move, i for Inventory or Q/X to quit. ")
     command = command.casefold()[:1]
 
     if command == "i":
