@@ -64,6 +64,7 @@ while not command.casefold() in ["q", "x"]:
             #g.set(player.pos_x, player.pos_y, g.empty)
             g.clear(player.pos_x, player.pos_y)
 
+        # Logik för att spawna nya föremål efter 25 steg
         steps_taken += 1
         if steps_taken == 25:
             pickups.spawn_one(g)
