@@ -13,4 +13,4 @@ H. Använd for-loopar för att skapa flera, sammanhängande väggar på kartan.
    Se till att det inte skapas några rum som man inte kan komma in i.
    Gör detta i filen grid.py.
 
-
+L. Bördig jord - efter varje 25:e drag skapas en ny frukt/grönsak någonstans på kartan.
